@@ -9,5 +9,4 @@ public class Job{
     {
         Console.WriteLine($"{_JobTitle} ({_JobCompany}) {_JobDates}");
     }
-
 }

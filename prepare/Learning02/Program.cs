@@ -13,9 +13,14 @@ class Program
         job2._JobTitle = "Electrical Engineer";
         job2._JobCompany = "Power Guy";
         job2._JobDates = "2000-2020";
+        
 
-        job.display_details();
-        job2.display_details();
+        Resume myResume = new Resume();
+        myResume._MemberName = "Lars";
+    
+        myResume._Jobs.Add(job);
+        myResume._Jobs.Add(job2);
 
+        myResume.display_details();
     }
 }
