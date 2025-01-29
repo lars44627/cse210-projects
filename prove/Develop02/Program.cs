@@ -2,7 +2,7 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32.SafeHandles;
 
-class Menu
+class Program
 {
     static void Main(string[] args)
     {
@@ -21,17 +21,36 @@ class Menu
     }
 }
 
-
 public class Entry
 {
-    public void Main()
+    public string _Content;
+    public string _Date;
+    public string _Prompt;
+    public string FormatEntry()
     {
-        public string _Content;
-        public string _Date;
-        public string _Prompt;
-
-
+         return ($"Date:{_Date}, Prompt:{_Prompt}, Content:{_Content}");
     }
+}
 
+public class Journal
+{
+    public string _Title;
+    public string _DateCreated;
+    public string _EntryCollection;
+    public List<Entry> _Entry = new List<Entry>();
+}
+
+public class DisplayPrompt
+{
+
+}
+
+public class SaveTextFromFile
+{
+
+}
+
+public class LoadTextFromFile
+{
 
 }
