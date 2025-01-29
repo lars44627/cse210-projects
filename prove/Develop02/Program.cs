@@ -21,6 +21,29 @@ class Program
         Console.WriteLine("5: quit application");
         string Directionin = Console.ReadLine();
         Direction = int.Parse(Directionin);
+
+        if (Direction == 1)
+            {
+                ShowEntries(myJournal);
+            }
+        else if (Direction == 2)
+            {
+                WriteEntry(myJournal, promptGenerator);
+            }
+        else if (Direction == 3)
+            {
+                SaveTextFromFile.SaveJournal(myJournal);
+                Console.WriteLine("Journal Saved");
+            }
+        else if (Direction == 4)
+            {
+                LoadTextFromFile.LoadJournal(myJournal);
+                Console.WriteLine("Journal Loaded");
+            }
+        else if (Direction == 5)
+            {
+                Console.WriteLine("quitting application");
+            }
         }
     }
     static void ShowEntries(Journal journal)
