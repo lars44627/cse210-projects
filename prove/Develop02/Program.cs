@@ -7,6 +7,9 @@ class Program
     static void Main(string[] args)
     {
         int Direction = 0;
+        Journal myJournal = new Journal();
+        DisplayPrompt promptGenerator = new DisplayPrompt();
+
         while(Direction != 5)
         {
         Console.WriteLine("Please choose one of the following:");
@@ -19,6 +22,21 @@ class Program
         Direction = int.Parse(Directionin);
         }
     }
+    static void ShowEntries(Journal journal)
+    {
+        if (journal._Entry.Count > 0)
+        {
+            foreach (var entry in journal._Entry)
+            {
+                Console.WriteLine(entry.FormatEntry());
+            }
+        }
+        else if (journal._Entry.Count < 0)
+        {
+            Console.WriteLine($"Sorry, There are no current entries");
+        }
+    }
+
 }
 
 public class Entry
