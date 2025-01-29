@@ -32,7 +32,7 @@ class Program
                 Console.WriteLine(entry.FormatEntry());
             }
         }
-        else if (journal._Entry.Count < 0)
+        else if (journal._Entry.Count == 0)
         {
             Console.WriteLine($"Sorry, There are no current entries");
         }
@@ -53,7 +53,7 @@ class Program
             _Date = date,
             _Prompt = prompt
         };
-
+        journal._Entry.Add(newEntry);
     }
 
 }
