@@ -40,7 +40,8 @@ class Program
     static void WriteEntry(Journal journal, DisplayPrompt promptGenerator)
     {
         string content;
-        string date = "2025-01-28";
+        Console.WriteLine("Date?:");
+        string date = Console.ReadLine();
         string prompt = promptGenerator.GetRandom();
 
         Console.WriteLine($"{prompt}:");
@@ -72,7 +73,6 @@ public class Journal
 {
     public string _Title;
     public string _DateCreated;
-    public string _EntryCollection;
     public List<Entry> _Entry = new List<Entry>();
 }
 
@@ -96,7 +96,17 @@ public class DisplayPrompt
 
 public class SaveTextFromFile
 {
-
+    public static void SaveJournal(Journal journal)
+    {
+        string filepath = "journal.txt";
+        using (StreamWriter writer = new StreamWriter(filepath))
+        { 
+            foreach (var entry in journal._Entry)
+            {
+                writer.WriteLine($"{entry._Date}|{entry._Prompt}|{entry._Content}");
+            }
+        }
+    }
 }
 
 
