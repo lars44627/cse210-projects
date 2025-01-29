@@ -3,6 +3,8 @@ using System.Configuration.Assemblies;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32.SafeHandles;
 
+
+//This ended up covering more than I thought. Initial console displayed.
 class Program
 {
     static void Main(string[] args)
@@ -22,6 +24,7 @@ class Program
         string Directionin = Console.ReadLine();
         Direction = int.Parse(Directionin);
 
+//Direction handling
         if (Direction == 1)
             {
                 ShowEntries(myJournal);
@@ -46,6 +49,7 @@ class Program
             }
         }
     }
+//Method for showing entries
     static void ShowEntries(Journal journal)
     {
         if (journal._Entry.Count > 0)
@@ -60,6 +64,7 @@ class Program
             Console.WriteLine($"Sorry, There are no current entries");
         }
     }
+//Method for Journal display
     static void WriteEntry(Journal journal, DisplayPrompt promptGenerator)
     {
         string content;
@@ -80,7 +85,7 @@ class Program
     }
 
 }
-
+//First Class: Entry info stored
 public class Entry
 {
     public string _Content;
@@ -88,10 +93,11 @@ public class Entry
     public string _Prompt;
     public string FormatEntry()
     {
-         return ($"Date:{_Date}, Prompt:{_Prompt}, Content:{_Content}");
+         return ($"Date:{_Date}, Prompt:{_Prompt}, Entry:{_Content}");
     }
 }
 
+//Second Class: Journal with Entry list
 public class Journal
 {
     public string _Title;
@@ -99,6 +105,7 @@ public class Journal
     public List<Entry> _Entry = new List<Entry>();
 }
 
+//Display prompt and function
 public class DisplayPrompt
 {
     private List<string> _prompts = new List<string>
@@ -117,6 +124,7 @@ public class DisplayPrompt
     }
 }
 
+//Saving Class
 public class SaveTextFromFile
 {
     public static void SaveJournal(Journal journal)
@@ -132,7 +140,7 @@ public class SaveTextFromFile
     }
 }
 
-
+//Loading Class(assuming text.file is there)
 public class LoadTextFromFile
 {
     public static void LoadJournal(Journal journal)
