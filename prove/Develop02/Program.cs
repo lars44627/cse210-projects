@@ -1,4 +1,5 @@
 using System;
+using System.Configuration.Assemblies;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32.SafeHandles;
 
@@ -35,6 +36,23 @@ class Program
         {
             Console.WriteLine($"Sorry, There are no current entries");
         }
+    }
+    static void WriteEntry(Journal journal, DisplayPrompt promptGenerator)
+    {
+        string content;
+        string date = "2025-01-28";
+        string prompt = promptGenerator.GetRandom();
+
+        Console.WriteLine($"{prompt}:");
+        content = Console.ReadLine();
+
+        Entry newEntry = new Entry()
+        {
+            _Content = content,
+            _Date = date,
+            _Prompt = prompt
+        };
+
     }
 
 }
