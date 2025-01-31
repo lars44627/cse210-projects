@@ -3,7 +3,8 @@ using System.Configuration.Assemblies;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32.SafeHandles;
 
-
+//My above and beyond was adding a method that lets the user do a custom prompt.
+//The prompt is saved with the entry, but not in the code
 //This ended up covering more than I thought. Initial console displayed.
 class Program
 {
