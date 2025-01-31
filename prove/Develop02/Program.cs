@@ -51,7 +51,7 @@ class Program
             }
         else if (Direction == 6)
             {
-                AddPrompt(promptGenerator);
+                promptGenerator.AddPrompt();
             }
         }
     }
@@ -132,8 +132,8 @@ public class DisplayPrompt
     public void AddPrompt()
     {
         Console.WriteLine("Enter a new prompt to add:");
-        string newPrompt = Console.ReadLine();
-        _prompts.Add(newPrompt);
+        string NewPrompt = Console.ReadLine();
+        _prompts.Add(NewPrompt);
         Console.WriteLine("New prompt added successfully!");
     }
 }
