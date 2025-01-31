@@ -21,6 +21,8 @@ class Program
         Console.WriteLine("3: Save Journal to File");
         Console.WriteLine("4: Load Journal from file");
         Console.WriteLine("5: quit application");
+        Console.WriteLine("6: Add prompt");
+
         string Directionin = Console.ReadLine();
         Direction = int.Parse(Directionin);
 
@@ -46,6 +48,10 @@ class Program
         else if (Direction == 5)
             {
                 Console.WriteLine("quitting application");
+            }
+        else if (Direction == 6)
+            {
+                AddPrompt(promptGenerator);
             }
         }
     }
@@ -116,12 +122,19 @@ public class DisplayPrompt
     "What was the strongest emotion I felt today?",
     "If I had one thing I could do over today, what would it be?"
     };
-    private static Random _random = new Random();
     public string GetRandom()
     {
         Random random = new Random();
         int index = random.Next(_prompts.Count);
         return _prompts[index];
+    }
+
+    public void AddPrompt()
+    {
+        Console.WriteLine("Enter a new prompt to add:");
+        string newPrompt = Console.ReadLine();
+        _prompts.Add(newPrompt);
+        Console.WriteLine("New prompt added successfully!");
     }
 }
 
