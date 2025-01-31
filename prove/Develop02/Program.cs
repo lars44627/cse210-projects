@@ -116,6 +116,7 @@ public class DisplayPrompt
     "What was the strongest emotion I felt today?",
     "If I had one thing I could do over today, what would it be?"
     };
+    private static Random _random = new Random();
     public string GetRandom()
     {
         Random random = new Random();
@@ -129,7 +130,10 @@ public class SaveTextFromFile
 {
     public static void SaveJournal(Journal journal)
     {
-        string filepath = "journal.txt";
+        Console.WriteLine("Name your file");
+        string InputName = Console.ReadLine();
+        string filepath = InputName;
+
         using (StreamWriter writer = new StreamWriter(filepath))
         { 
             foreach (var entry in journal._Entry)
@@ -140,13 +144,15 @@ public class SaveTextFromFile
     }
 }
 
-//Loading Class(assuming text.file is there)
+//Loading Class(assuming text.file is there) to specified loacation
 public class LoadTextFromFile
 {
     public static void LoadJournal(Journal journal)
     {
-        string filepath = "journal.txt";
-        journal._Entry.Clear();
+
+        Console.WriteLine("What File do you Want to read?:");
+        string InputName = Console.ReadLine();
+        string filepath = InputName;
 
         using (StreamReader reader = new StreamReader(filepath))
         {
