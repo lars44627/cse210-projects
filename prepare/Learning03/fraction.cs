@@ -3,8 +3,8 @@ using System.Globalization;
 
 public class Fraction
 {
-private int _top = 0; 
-private int _bottom = 0;
+private int _top; 
+private int _bottom;
 
     public Fraction()
     {
@@ -30,5 +30,13 @@ private int _bottom = 0;
     {
         get { return _bottom; }
         set { _bottom = value; }
+    }
+        public string GetFractionString()
+    {
+        return $"{_top}/{_bottom}";
+    }
+    public double GetDecimalValue()
+    {
+        return (double)_top / _bottom;
     }
 }

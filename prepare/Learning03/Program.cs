@@ -7,16 +7,15 @@ class Program
         Fraction def = new Fraction();
         Fraction one = new Fraction(5);
         Fraction two = new Fraction(3, 4);
+        Fraction three = new Fraction(1, 3);
 
-        def.Top = 2;
-        def.Bottom = 5;
-        one.Top = 7;
-        one.Bottom = 9;
-        two.Top = 8;
-        two.Bottom = 10;
-
-        Console.WriteLine($"Updated Default Fraction: {def.Top}/{def.Bottom}");
-        Console.WriteLine($"Updated Fraction One: {one.Top}/{one.Bottom}");
-        Console.WriteLine($"Updated Fraction Two: {two.Top}/{two.Bottom}");
+        Console.WriteLine(def.GetFractionString());
+        Console.WriteLine(def.GetDecimalValue());
+        Console.WriteLine(one.GetFractionString());
+        Console.WriteLine(one.GetDecimalValue());
+        Console.WriteLine(two.GetFractionString());
+        Console.WriteLine(two.GetDecimalValue());
+        Console.WriteLine(three.GetFractionString());
+        Console.WriteLine(three.GetDecimalValue());
     }
 }
