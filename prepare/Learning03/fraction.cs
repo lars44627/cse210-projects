@@ -31,7 +31,7 @@ private int _bottom;
         get { return _bottom; }
         set { _bottom = value; }
     }
-        public string GetFractionString()
+    public string GetFractionString()
     {
         return $"{_top}/{_bottom}";
     }
