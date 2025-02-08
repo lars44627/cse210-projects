@@ -34,7 +34,7 @@ class Program
             }
         else if (Direction == 2)
             {
-                WriteEntry(myJournal, promptGenerator);
+                myJournal.WriteEntry(promptGenerator);
             }
         else if (Direction == 3)
             {
@@ -55,25 +55,5 @@ class Program
                 promptGenerator.AddPrompt();
             }
         }
-    }
-
-//Method for Journal display
-    static void WriteEntry(Journal journal, DisplayPrompt promptGenerator)
-    {
-        string content;
-        Console.WriteLine("Date?:");
-        string date = Console.ReadLine();
-        string prompt = promptGenerator.GetRandom();
-
-        Console.WriteLine($"{prompt}:");
-        content = Console.ReadLine();
-
-        Entry newEntry = new Entry()
-        {
-            _Content = content,
-            _Date = date,
-            _Prompt = prompt
-        };
-        journal._Entry.Add(newEntry);
     }
 }

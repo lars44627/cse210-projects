@@ -20,4 +20,23 @@ public class Journal
             Console.WriteLine($"Sorry, There are no current entries");
         }
     }
+
+    //Method for Journal display
+    public void WriteEntry(DisplayPrompt promptGenerator)
+    {
+        Console.WriteLine("Date?:");
+        string date = Console.ReadLine();
+        string prompt = promptGenerator.GetRandom();
+
+        Console.WriteLine($"{prompt}:");
+        string content = Console.ReadLine();
+
+        Entry newEntry = new Entry()
+        {
+            _Content = content,
+            _Date = date,
+            _Prompt = prompt
+        };
+        _Entry.Add(newEntry);
+    }
 }
