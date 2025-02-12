@@ -10,10 +10,10 @@ class Program
         while (true)
         {
             scripture.Display();
-            Console.WriteLine("\nPress Enter to hide words or type 'quit' to exit.");
+            Console.WriteLine("\nPress 'enter' to hide words or type 'quit' to exit The Program.");
             string input = Console.ReadLine();
 
-            if (input.ToLower() == "quit")
+            if (input == "quit")
                 break;
 
             scripture.HideWords();
