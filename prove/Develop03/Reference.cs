@@ -24,4 +24,11 @@ public class Reference
         _verseEnd = verseEnd;
 
     }
+
+    public string GetReference()
+    {
+        return _verseStart == _verseEnd
+            ? ($"{_book} {_chapter}:{_verseStart}")
+            : ($"{_book} {_chapter}:{_verseStart}-{_verseEnd}");
+    }
 }
