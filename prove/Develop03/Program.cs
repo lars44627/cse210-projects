@@ -4,8 +4,22 @@ class Program
 {
     static void Main()
     {
-        Reference reference = new Reference("Proverbs", 3, 5, 6);
-        Scripture scripture = new Scripture(reference, "Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.");
+        Random random = new Random();
+        int choice = random.Next(2);
+
+        Reference reference;
+        Scripture scripture;
+
+        if (choice == 0)
+        {
+        reference = new Reference("Proverbs", 3, 5, 6);
+        scripture = new Scripture(reference, "Trust in the LORD with all thine heart: and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.");
+        }
+        else
+        {
+        reference = new Reference("John", 3, 16);
+        scripture = new Scripture(reference, "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
+        }
 
         while (true)
         {
