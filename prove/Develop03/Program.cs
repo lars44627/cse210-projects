@@ -1,3 +1,7 @@
+
+//Above and beyond is the functionality here in program that chooses randomly between
+//two scriptures insted of just one.
+
 using System;
 
 class Program
