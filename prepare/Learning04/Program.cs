@@ -2,8 +2,9 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello Learning04 World!");
+        Assignment assignment = new Assignment("Samuel Bennett", "Division");
+        Console.WriteLine(assignment.GetSummary());
     }
 }
