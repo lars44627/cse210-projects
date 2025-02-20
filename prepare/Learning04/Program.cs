@@ -11,5 +11,9 @@ class Program
         Console.WriteLine(mathAssignment.GetSummary());
         Console.WriteLine(mathAssignment.GetHomeworkList());
 
+        WritingAssignment writingAssignment = new WritingAssignment("Samuel Bennett", "History", "The Renaissance");
+        Console.WriteLine(writingAssignment.GetSummary());
+        Console.WriteLine(writingAssignment.GetWritingInformation());
+
     }
 }
