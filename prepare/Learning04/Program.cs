@@ -8,11 +8,9 @@ class Program
         Console.WriteLine(assignment.GetSummary());
 
         MathAssignment mathAssignment = new MathAssignment("Samuel Bennett", "Division", "5.1", "1-20");
-        Console.WriteLine(mathAssignment.GetSummary());
         Console.WriteLine(mathAssignment.GetHomeworkList());
 
         WritingAssignment writingAssignment = new WritingAssignment("Samuel Bennett", "History", "The Renaissance");
-        Console.WriteLine(writingAssignment.GetSummary());
         Console.WriteLine(writingAssignment.GetWritingInformation());
 
     }
