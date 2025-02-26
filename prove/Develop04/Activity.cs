@@ -17,5 +17,9 @@ class Activity
 
      protected void Run() {}
     protected string GetDescription() { return "Activity"; }
-    protected void Pause(int seconds) { Console.WriteLine(new string('.', seconds)); }
+    protected void Pause(int seconds)
+    {
+    System.Threading.Thread.Sleep(seconds * 1000);
+    Console.WriteLine(new string('.', seconds));
+    }
 }
