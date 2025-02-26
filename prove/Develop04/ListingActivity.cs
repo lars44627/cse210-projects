@@ -3,8 +3,8 @@ using System;
 class ListingActivity : Activity
 {
     string[] _prompts = { "List people you appreciate.", "List your strengths." };
-    protected string GetDescription() { return "List as many positive things as you can."; }
-    protected void Run()
+    protected override string GetDescription() { return "List as many positive things as you can."; }
+    protected override void Run()
     {
         Console.WriteLine(_prompts[new Random().Next(_prompts.Length)]);
         Pause(3);
