@@ -15,11 +15,15 @@ class Activity
         Pause(3);
     }
 
-     protected void Run() {}
-    protected string GetDescription() { return "Activity"; }
+    protected virtual void Run() {}
+    protected virtual string GetDescription() { return "Activity"; }
     protected void Pause(int seconds)
     {
-    System.Threading.Thread.Sleep(seconds * 1000);
-    Console.WriteLine(new string('.', seconds));
+        for (int i = 0; i < seconds; i++)
+        {
+            Console.Write(".");
+            Thread.Sleep(1000);
+        }
+        Console.WriteLine();
     }
 }
