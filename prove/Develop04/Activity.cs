@@ -1,3 +1,5 @@
+
+using System;
 class Activity
 {
     protected int _Duration;
@@ -14,7 +16,7 @@ class Activity
         Pause(3);
     }
 
-    protected void Run() {}
+     protected void Run() {}
     protected string GetDescription() { return "Activity"; }
-    protected void Pause(int seconds) { for (int i = 0; i < seconds; i++) { Console.Write(".");  } Console.WriteLine(); }
+    protected void Pause(int seconds) { Console.WriteLine(new string('.', seconds)); }
 }
