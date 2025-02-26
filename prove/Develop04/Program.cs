@@ -23,4 +23,8 @@ class Program
         Console.WriteLine("4. Exit");
         Console.Write("Enter your choice: ");
     }
+    public static void Main()
+    {
+        new Program();
+    }
 }
