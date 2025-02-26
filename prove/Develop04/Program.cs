@@ -4,6 +4,8 @@ class Program
 {
     public Program()
     {
+        while (true)
+        {
         Menu();
         string choice = Console.ReadLine();
         
@@ -11,7 +13,8 @@ class Program
         if (choice == "1") new BreathingActivity().Start();
         else if (choice == "2") new ReflectionActivity().Start();
         else if (choice == "3") new ListingActivity().Start();
-        else Console.WriteLine("Invalid choice, exiting program.");
+        else Console.WriteLine("Invalid choice, try again.");
+        }
     }
 
     public void Menu()
