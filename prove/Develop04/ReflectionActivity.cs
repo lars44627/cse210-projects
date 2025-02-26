@@ -1,3 +1,5 @@
+using System;
+
 class ReflectionActivity : Activity
 {
     string[] _prompts = { "Think of a time you stood up for someone.", "Think of a time you overcame a challenge." };
