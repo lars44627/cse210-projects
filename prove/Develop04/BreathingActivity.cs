@@ -7,8 +7,8 @@ class BreathingActivity : Activity
     {
         for (int i = 0; i < _Duration / 6; i++)
         {
-            Console.WriteLine("Breathe in..."); Pause(3);
-            Console.WriteLine("Breathe out..."); Pause(3);
+            Console.WriteLine("Breathe in..."); Pause(4);
+            Console.WriteLine("Breathe out..."); Pause(4);
         }
     }
 }
