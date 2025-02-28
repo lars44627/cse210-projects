@@ -7,7 +7,7 @@ class ListingActivity : Activity
     protected override void Run()
     {
         Console.WriteLine(_prompts[new Random().Next(_prompts.Length)]);
-        Pause(3);
+        Pause(1);
         int count = 0;
         Console.WriteLine("Start listing items (press enter after each):");
         for (int elapsed = 0; elapsed < _Duration; elapsed += 3)

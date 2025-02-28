@@ -16,7 +16,7 @@ class ReflectionActivity : Activity
     {
         Random rand = new Random();
         Console.WriteLine(_prompts[rand.Next(_prompts.Length)]);
-        Pause(3);
+        Pause(1);
         int elapsed = 0;
         while (elapsed < _Duration)
         {
