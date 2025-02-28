@@ -2,6 +2,10 @@ using System;
 
 class Program
 {
+    private int breathingCount = 0;
+    private int reflectionCount = 0;
+    private int listingCount = 0;
+
     public Program()
     {
         while (true)
@@ -10,19 +14,33 @@ class Program
         string choice = Console.ReadLine();
         
         if (choice == "4") return;
-        if (choice == "1") new BreathingActivity().Start();
-        else if (choice == "2") new ReflectionActivity().Start();
-        else if (choice == "3") new ListingActivity().Start();
-        else Console.WriteLine("Invalid choice, try again.");
-        }
+            if (choice == "1")
+            {
+                breathingCount++;
+                new BreathingActivity().Start();
+            }
+            else if (choice == "2")
+            {
+                reflectionCount++;
+                new ReflectionActivity().Start();
+            }
+            else if (choice == "3")
+            {
+                listingCount++;
+                new ListingActivity().Start();
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice, try again.");
+            }
     }
-
+}
     public void Menu()
     {
         Console.WriteLine("Choose an activity:");
-        Console.WriteLine("1. Breathing Activity");
-        Console.WriteLine("2. Reflection Activity");
-        Console.WriteLine("3. Listing Activity");
+        Console.WriteLine($"1. Breathing Activity (run {breathingCount} times)");
+        Console.WriteLine($"2. Reflection Activity (run {reflectionCount} times)");
+        Console.WriteLine($"3. Listing Activity (run {listingCount} times)");
         Console.WriteLine("4. Exit");
         Console.Write("Enter your choice: ");
     }
