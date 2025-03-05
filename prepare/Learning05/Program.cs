@@ -2,8 +2,10 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello Learning05 World!");
+        Square square = new Square("Red", 5);
+        Console.WriteLine("Color: " + square.GetColor());
+        Console.WriteLine("Area: " + square.GetArea());
     }
 }
