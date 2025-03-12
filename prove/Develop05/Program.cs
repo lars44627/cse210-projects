@@ -32,3 +32,25 @@ class Program
             else Console.WriteLine("Invalid choice, try again.");
         }
     }
+
+    static void CreateGoal()
+    {
+        Console.WriteLine("Select Goal Type: 1. Simple 2. Eternal 3. Checklist");
+        string type = Console.ReadLine();
+        Console.Write("Enter goal name: ");
+        string name = Console.ReadLine();
+        Console.Write("Enter points: ");
+        int points = int.Parse(Console.ReadLine());
+
+        if (type == "1") goals.Add(new SimpleGoal(name, points));
+        else if (type == "2") goals.Add(new EternalGoal(name, points));
+        else if (type == "3")
+        {
+            Console.Write("Enter target count: ");
+            int target = int.Parse(Console.ReadLine());
+            Console.Write("Enter bonus points: ");
+            int bonus = int.Parse(Console.ReadLine());
+            goals.Add(new ChecklistGoal(name, points, target, bonus));
+        }
+        else Console.WriteLine("Invalid option.");
+    }
