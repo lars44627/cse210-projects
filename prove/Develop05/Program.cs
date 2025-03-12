@@ -24,31 +24,11 @@ class Program
             Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
-            
-            if (choice == "1")
-            {
-                CreateGoal();
-            }
-            else if (choice == "2")
-            {
-                RecordEvent();
-            }
-            else if (choice == "3")
-            {
-                ShowGoals();
-            }
-            else if (choice == "4")
-            {
-                Console.WriteLine($"Current Score: {score}");
-            }
-            else if (choice == "5")
-            {
-                SaveGoals();
-                return;
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice, try again.");
-            }
+            if (choice == "1") CreateGoal();
+            else if (choice == "2") RecordEvent();
+            else if (choice == "3") ShowGoals();
+            else if (choice == "4") Console.WriteLine($"Current Score: {score}");
+            else if (choice == "5") { SaveGoals(); return; }
+            else Console.WriteLine("Invalid choice, try again.");
         }
     }
