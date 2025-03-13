@@ -1,6 +1,6 @@
 using System;
 
-abstract class Goal
+public abstract class Goal
 {
     public string Name { get; set; }
     public int Points { get; set; }
