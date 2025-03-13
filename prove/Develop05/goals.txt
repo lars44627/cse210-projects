@@ -1,2 +1,4 @@
-10
+98
 Eternal,Pray,10
+Eternal,Prayer,15
+Simple,Die,78,True
