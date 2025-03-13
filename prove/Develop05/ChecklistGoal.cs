@@ -26,6 +26,5 @@ class ChecklistGoal : Goal
     }
 
     public override string Display() => (_timesCompleted >= _target ? "[X] " : "[ ] ") + $"{Name} (Completed {_timesCompleted}/{_target})";
-
     public override string SaveFormat() => $"Checklist,{Name},{Points},{_target},{_bonus},{_timesCompleted}";
 }
