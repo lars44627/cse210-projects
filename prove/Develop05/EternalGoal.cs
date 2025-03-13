@@ -1,6 +1,12 @@
+using System;
+
 public class EternalGoal : Goal
 {
-    public EternalGoal(string name, int points) : base(name, points) { }
+    public EternalGoal(string name, int points)
+    {
+        Name = name;
+        Points = points;
+    }
 
     public override void RecordEvent()
     {

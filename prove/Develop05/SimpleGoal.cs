@@ -1,10 +1,13 @@
+using System;
+
 public class SimpleGoal : Goal
 {
-    private bool _completed;
+    private bool _completed = false;
 
-    public SimpleGoal(string name, int points) : base(name, points) // ✅ Calls Goal constructor
+    public SimpleGoal(string name, int points)
     {
-        _completed = false;
+        Name = name;
+        Points = points;
     }
 
     public override void RecordEvent()

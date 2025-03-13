@@ -1,14 +1,17 @@
+using System;
+
 public class ChecklistGoal : Goal
 {
     private int _target;
     private int _bonus;
-    private int _count;
+    private int _count = 0;
 
-    public ChecklistGoal(string name, int points, int target, int bonus) : base(name, points) // ✅ Calls Goal constructor
+    public ChecklistGoal(string name, int points, int target, int bonus)
     {
+        Name = name;
+        Points = points;
         _target = target;
         _bonus = bonus;
-        _count = 0;
     }
 
     public override void RecordEvent()

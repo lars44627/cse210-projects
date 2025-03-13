@@ -3,12 +3,13 @@ using System;
 public class TimedGoal : Goal
 {
     private DateTime _deadline;
-    private bool _completed;
+    private bool _completed = false;
 
-    public TimedGoal(string name, int points, DateTime deadline) : base(name, points)
+    public TimedGoal(string name, int points, DateTime deadline)
     {
+        Name = name;
+        Points = points;
         _deadline = deadline;
-        _completed = false;
     }
 
     public override void RecordEvent()
