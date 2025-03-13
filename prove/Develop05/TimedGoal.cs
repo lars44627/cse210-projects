@@ -1,4 +1,5 @@
 using System;
+
 public class TimedGoal : Goal
 {
     private DateTime _deadline;

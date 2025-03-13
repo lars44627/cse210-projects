@@ -1,26 +1,23 @@
-using System;
-
-class SimpleGoal : Goal
+public class SimpleGoal : Goal
 {
-    private bool _isCompleted;
+    private bool _completed;
 
-    public SimpleGoal(string name, int points)
+    public SimpleGoal(string name, int points) : base(name, points) // ✅ Calls Goal constructor
     {
-        Name = name;
-        Points = points;
-        _isCompleted = false;
+        _completed = false;
     }
 
     public override void RecordEvent()
     {
-        if (!_isCompleted)
+        if (!_completed)
         {
-            _isCompleted = true;
+            _completed = true;
             Program.AddScore(Points);
+            Console.WriteLine($"Goal '{Name}' completed!");
         }
+        else Console.WriteLine("Goal already completed.");
     }
 
-    public override string Display() => (_isCompleted ? "[X] " : "[ ] ") + Name;
-
-    public override string SaveFormat() => $"Simple,{Name},{Points},{_isCompleted}";
+    public override string Display() => _completed ? $"{Name} (Completed)" : Name;
+    public override string SaveFormat() => $"Simple,{Name},{Points},{_completed}";
 }

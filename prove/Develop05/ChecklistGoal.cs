@@ -1,30 +1,29 @@
-using System;
-
-class ChecklistGoal : Goal
+public class ChecklistGoal : Goal
 {
-    private int _timesCompleted;
     private int _target;
     private int _bonus;
+    private int _count;
 
-    public ChecklistGoal(string name, int points, int target, int bonus)
+    public ChecklistGoal(string name, int points, int target, int bonus) : base(name, points) // ✅ Calls Goal constructor
     {
-        Name = name;
-        Points = points;
         _target = target;
         _bonus = bonus;
-        _timesCompleted = 0;
+        _count = 0;
     }
 
     public override void RecordEvent()
     {
-        _timesCompleted++;
+        _count++;
         Program.AddScore(Points);
-        if (_timesCompleted == _target)
+
+        if (_count >= _target)
         {
             Program.AddScore(_bonus);
+            Console.WriteLine($"Checklist Goal '{Name}' completed! Bonus Points Awarded.");
         }
+        else Console.WriteLine($"Checklist Goal '{Name}' recorded. {_target - _count} left.");
     }
 
-    public override string Display() => (_timesCompleted >= _target ? "[X] " : "[ ] ") + $"{Name} (Completed {_timesCompleted}/{_target})";
-    public override string SaveFormat() => $"Checklist,{Name},{Points},{_target},{_bonus},{_timesCompleted}";
+    public override string Display() => $"{Name} - Completed {_count}/{_target} times";
+    public override string SaveFormat() => $"Checklist,{Name},{Points},{_target},{_bonus},{_count}";
 }
