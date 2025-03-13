@@ -34,7 +34,7 @@ class Program
 
     static void CreateGoal()
     {
-        Console.WriteLine("Select Goal Type: 1. Simple 2. Eternal 3. Checklist");
+        Console.WriteLine("Select Goal Type: 1. Simple 2. Eternal 3. Checklist 4. Timed");
         string type = Console.ReadLine();
         Console.Write("Enter Goal Name: ");
         string name = Console.ReadLine();
@@ -65,6 +65,16 @@ class Program
             }
 
             _goals.Add(new ChecklistGoal(name, points, target, bonus));
+        }
+        else if (type == "4")
+        {
+            Console.Write("Enter Number of Days to Complete: ");
+            if (!int.TryParse(Console.ReadLine(), out int days))
+            {
+                Console.WriteLine("Invalid input! Days must be a number.");
+                return;
+            }
+            _goals.Add(new TimedGoal(name, points, DateTime.Now.AddDays(days)));
         }
         else Console.WriteLine("Invalid option.");
         SaveGoals();
@@ -137,6 +147,14 @@ class Program
                 var checklistGoal = new ChecklistGoal(name, points, target, bonus);
                 for (int i = 0; i < timesCompleted; i++) checklistGoal.RecordEvent();
                 _goals.Add(checklistGoal);
+            }
+            else if (type == "Timed")
+            {
+                DateTime deadline = DateTime.Parse(parts[3]);
+                bool completed = bool.Parse(parts[4]);
+                var timedGoal = new TimedGoal(name, points, deadline);
+                if (completed) timedGoal.RecordEvent();
+                _goals.Add(timedGoal);
             }
         }
         Console.WriteLine("Goals Loaded!");
