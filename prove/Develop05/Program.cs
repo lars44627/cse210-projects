@@ -38,20 +38,36 @@ class Program
         string type = Console.ReadLine();
         Console.Write("Enter Goal Name: ");
         string name = Console.ReadLine();
+
         Console.Write("Enter Points: ");
-        int points = int.Parse(Console.ReadLine());
+        if (!int.TryParse(Console.ReadLine(), out int points))
+        {
+            Console.WriteLine("Invalid input! Points must be a number.");
+            return;
+        }
 
         if (type == "1") _goals.Add(new SimpleGoal(name, points));
         else if (type == "2") _goals.Add(new EternalGoal(name, points));
         else if (type == "3")
         {
             Console.Write("Enter Target Count: ");
-            int target = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int target))
+            {
+                Console.WriteLine("Invalid input! Target count must be a number.");
+                return;
+            }
+
             Console.Write("Enter Bonus Points: ");
-            int bonus = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int bonus))
+            {
+                Console.WriteLine("Invalid input! Bonus points must be a number.");
+                return;
+            }
+
             _goals.Add(new ChecklistGoal(name, points, target, bonus));
         }
         else Console.WriteLine("Invalid option.");
+        SaveGoals();
     }
 
     static void RecordEvent()
@@ -61,6 +77,7 @@ class Program
         if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= _goals.Count)
         {
             _goals[index - 1].RecordEvent();
+            SaveGoals();
             Console.WriteLine("Event Recorded!");
         }
         else Console.WriteLine("Invalid selection.");
@@ -68,18 +85,26 @@ class Program
 
     static void ShowGoals()
     {
+        Console.WriteLine("\nYour Goals:");
         for (int i = 0; i < _goals.Count; i++)
-            Console.WriteLine($"{i + 1}. {_goals[i].Display()}");
+            Console.WriteLine($"[{i + 1}] {_goals[i].Display()}");
     }
 
     static void SaveGoals()
     {
-        using (StreamWriter writer = new StreamWriter("goals.txt"))
+        try
         {
-            writer.WriteLine(_score);
-            _goals.ForEach(goal => writer.WriteLine(goal.SaveFormat()));
+            using (StreamWriter writer = new StreamWriter("goals.txt"))
+            {
+                writer.WriteLine(_score);
+                _goals.ForEach(goal => writer.WriteLine(goal.SaveFormat()));
+            }
+            Console.WriteLine("Goals Saved!");
         }
-        Console.WriteLine("Goals Saved!");
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving goals: {ex.Message}");
+        }
     }
 
     static void LoadGoals()
@@ -110,7 +135,7 @@ class Program
             {
                 int target = int.Parse(parts[3]), bonus = int.Parse(parts[4]), timesCompleted = int.Parse(parts[5]);
                 var checklistGoal = new ChecklistGoal(name, points, target, bonus);
-                while (checklistGoal.Display().Contains($"{timesCompleted}/{target}")) checklistGoal.RecordEvent();
+                for (int i = 0; i < timesCompleted; i++) checklistGoal.RecordEvent();
                 _goals.Add(checklistGoal);
             }
         }
