@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 public class Video
 {
-    public string title;
-    public string author;
-    public int lengthSeconds;
+    public string _title;
+    public string _author;
+    public int _lengthSeconds;
     public List<Comment> comments = new List<Comment>();
 
     public Video(string t, string a, int len)
     {
-        title = t;
-        author = a;
-        lengthSeconds = len;
+        _title = t;
+        _author = a;
+        _lengthSeconds = len;
     }
 
     public void AddComment(Comment comment)
@@ -27,13 +27,13 @@ public class Video
 
     public void DisplayVideoInfo()
     {
-        Console.WriteLine($"Title: {title}");
-        Console.WriteLine($"Author: {author}");
-        Console.WriteLine($"Length: {lengthSeconds} seconds");
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Author: {_author}");
+        Console.WriteLine($"Length: {_lengthSeconds} seconds");
         Console.WriteLine($"Comments ({GetCommentCount()}):");
         foreach (var c in comments)
         {
-            Console.WriteLine($"- {c.commenterName}: {c.text}");
+            Console.WriteLine($"- {c._commenterName}: {c._text}");
         }
         Console.WriteLine();
     }
