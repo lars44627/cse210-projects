@@ -7,24 +7,24 @@ class Program
     {
         List<Video> videos = new List<Video>();
 
-        Video v1 = new Video("Product X Review", "TechGuru", 300);
-        v1.AddComment(new Comment("Alice", "Very informative!"));
-        v1.AddComment(new Comment("Bob", "I just bought this product."));
-        v1.AddComment(new Comment("Charlie", "Can you compare it to Product Y?"));
+         Video v1 = new Video("How to Bake Sourdough Bread", "Emily Carter", 480);
+        v1.AddComment(new Comment("Sophia", "This was so helpful, thank you!"));
+        v1.AddComment(new Comment("James", "Tried it this morning—turned out great."));
+        v1.AddComment(new Comment("Liam", "Can you do a video on rye bread next?"));
         videos.Add(v1);
 
-        Video v2 = new Video("Unboxing Product Y", "GadgetGuy", 420);
-        v2.AddComment(new Comment("Dave", "I love unboxings!"));
-        v2.AddComment(new Comment("Eve", "That packaging looks sleek."));
-        v2.AddComment(new Comment("Frank", "Can't wait to try this out."));
+        Video v2 = new Video("Beginner Yoga Routine", "Alex Rivera", 600);
+        v2.AddComment(new Comment("Olivia", "Perfect way to start the day."));
+        v2.AddComment(new Comment("Mason", "I feel so much better after this."));
+        v2.AddComment(new Comment("Ava", "Please make a part 2!"));
         videos.Add(v2);
 
-        Video v3 = new Video("Product Z vs Product X", "ReviewQueen", 510);
-        v3.AddComment(new Comment("Grace", "Z is way better."));
-        v3.AddComment(new Comment("Heidi", "Thanks for the comparison."));
-        v3.AddComment(new Comment("Ivan", "I think X has better value."));
+        Video v3 = new Video("Top 5 Productivity Tips", "Daniel Kim", 360);
+        v3.AddComment(new Comment("Emma", "Tip #3 changed the game for me."));
+        v3.AddComment(new Comment("Noah", "Simple but super effective."));
+        v3.AddComment(new Comment("Isabella", "Love the energy in this video."));
         videos.Add(v3);
-
+        
         foreach (var video in videos)
         {
             video.DisplayVideoInfo();
