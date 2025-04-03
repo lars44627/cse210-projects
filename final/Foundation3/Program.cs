@@ -4,14 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Address address1 = new Address("123 Tech Rd", "Seattle", "WA", "USA");
-        Lecture lecture = new Lecture("AI Summit", "A deep dive into AI advancements.", "June 10, 2025", "10:00 AM", address1, "Dr. Jane Smith", 150);
+        Address address1 = new Address("123 FreeGoldRoad", "Mosul", "zz", "ARA");
+        Lecture lecture = new Lecture("AU Summit", "A deep dive into How to get gold.", "June 55, 2025", "10:00 AM", address1, "Dr. Abdul", 150);
 
-        Address address2 = new Address("456 Party Blvd", "Austin", "TX", "USA");
-        Reception reception = new Reception("Startup Mixer", "Networking event for entrepreneurs.", "July 20, 2025", "6:00 PM", address2, "rsvp@startupmixer.com");
+        Address address2 = new Address("4567 apartment ave", "Austin", "TX", "USA");
+        Reception reception = new Reception("Startup ethernets", "Networking event for noobs.", "July 43, 2025", "1:00 PM", address2, "rsvp@startupmixercds.com");
 
-        Address address3 = new Address("789 Nature Park", "Denver", "CO", "USA");
-        OutdoorGathering outdoor = new OutdoorGathering("Summer Fest", "Outdoor fun with food trucks and live music.", "August 15, 2025", "12:00 PM", address3, "Sunny with clear skies");
+        Address address3 = new Address("789 Nature noWayMan", "Denver", "CO", "USA");
+        OutdoorGathering outdoor = new OutdoorGathering("Summer Feast", "Outdoor fun with heavenly food", "August 15, 2025", "12:00 PM", address3, "Sunny with a chance of meatballs");
 
         Event[] events = { lecture, reception, outdoor };
 
